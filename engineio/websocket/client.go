@@ -8,7 +8,7 @@ import (
 	"github.com/mlsquires/socketio/engineio/parser"
 	"github.com/mlsquires/socketio/engineio/transport"
 
-	"github.com/gorilla/websocket"
+	"github.com/mlsquires/websocket"
 )
 
 type client struct {

@@ -12,6 +12,7 @@ import (
 	"github.com/mlsquires/socketio/engineio/message"
 	"github.com/mlsquires/socketio/engineio/parser"
 	"github.com/mlsquires/socketio/engineio/transport"
+	log "github.com/sirupsen/logrus"
 )
 
 type MessageType message.MessageType
@@ -344,6 +345,7 @@ func (c *serverConn) setState(state state) {
 func (c *serverConn) pingLoop() {
 	lastPing := time.Now()
 	lastTry := lastPing
+	defer CapturePanic("pingloop")
 	for {
 		now := time.Now()
 		pingDiff := now.Sub(lastPing)
@@ -368,5 +370,14 @@ func (c *serverConn) pingLoop() {
 			c.Close()
 			return
 		}
+	}
+}
+
+func CapturePanic(msg string) (err error)  {
+	if p := recover(); p != nil {
+		msg := fmt.Sprintf("PANIC: %v error: %v", msg, p)
+		log.Warn(msg)
+		err := errors.New(msg)
+		return err
 	}
 }

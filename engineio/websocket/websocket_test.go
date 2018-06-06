@@ -13,7 +13,7 @@ import (
 	"github.com/mlsquires/socketio/engineio/parser"
 	"github.com/mlsquires/socketio/engineio/transport"
 
-	"github.com/gorilla/websocket"
+	"github.com/mlsquires/websocket"
 
 	. "github.com/smartystreets/goconvey/convey"
 )
