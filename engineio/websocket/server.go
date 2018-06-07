@@ -11,7 +11,7 @@ import (
 	"github.com/mlsquires/websocket"
 	"fmt"
 	log "github.com/sirupsen/logrus"
-	"errors"
+	"runtime"
 )
 
 type Server struct {
@@ -78,7 +78,17 @@ func (s *Server) Close() error {
 
 func (s *Server) serveHTTP(w http.ResponseWriter, r *http.Request) {
 	defer s.callback.OnClose(s)
-	defer CapturePanic("serveHTTP")
+	defer func() {
+		if p := recover(); p != nil {
+			msg := fmt.Sprintf("PANIC: socketio.engineio.websocket.serveHTTP:  got error: %v", p)
+			log.Warn(msg)
+			stackTrace := make([]byte, 0)
+			runtime.Stack(stackTrace, true)
+			log.Warn(stackTrace)
+			s.conn.Close()
+			return
+		}
+	}()
 
 	for {
 		t, r, err := s.conn.NextReader()
@@ -98,14 +108,5 @@ func (s *Server) serveHTTP(w http.ResponseWriter, r *http.Request) {
 			s.callback.OnPacket(decoder)
 			decoder.Close()
 		}
-	}
-}
-
-func CapturePanic(msg string) (err error)  {
-	if p := recover(); p != nil {
-		msg := fmt.Sprintf("PANIC: %v error: %v", msg, p)
-		log.Warn(msg)
-		err := errors.New(msg)
-		return err
 	}
 }
