@@ -40,8 +40,7 @@
 [[projects]]
   name = "github.com/mlsquires/websocket"
   packages = ["."]
-  revision = "ea4d1f681babbce9545c9c5f3d5194a789c89f5b"
-  version = "v1.2.0"
+  branch = "panic_investigation"
 
 [[projects]]
   branch = "master"
