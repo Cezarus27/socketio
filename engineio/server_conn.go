@@ -147,6 +147,8 @@ func (c *serverConn) NextWriter(t MessageType) (io.WriteCloser, error) {
 	default:
 		return nil, io.EOF
 	}
+	c.writerLocker.Lock()
+	defer c.writerLocker.Unlock()
 	ret, err := c.getCurrent().NextWriter(message.MessageType(t), parser.MESSAGE)
 	return ret, err
 }
