@@ -121,11 +121,11 @@ func (s *Server) ServeHTTP(w http.ResponseWriter, r *http.Request) {
 			return
 		}
 
-		n := atomic.AddInt32(&s.currentConnection, 1)
-		if int(n) > s.config.MaxConnection {
+		if int(s.currentConnection+1) > s.config.MaxConnection {
 			http.Error(w, "too many connections", http.StatusServiceUnavailable)
 			return
 		}
+		atomic.AddInt32(&s.currentConnection, 1)
 
 		sid = s.config.NewId(r)
 
