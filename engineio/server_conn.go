@@ -201,7 +201,6 @@ func (c *serverConn) OnPacket(r *parser.PacketDecoder) {
 	case parser.PING:
 		t := c.getCurrent()
 		u := c.getUpgrade()
-		c.writerLocker.Lock()
 		newWriter := t.NextWriter
 		if u != nil {
 			if w, _ := t.NextWriter(message.MessageText, parser.NOOP); w != nil {
@@ -209,11 +208,14 @@ func (c *serverConn) OnPacket(r *parser.PacketDecoder) {
 			}
 			newWriter = u.NextWriter
 		}
+		var lock sync.Mutex
+
 		if w, _ := newWriter(message.MessageText, parser.PONG); w != nil {
+			lock.Lock()
 			io.Copy(w, r)
+			lock.Unlock()
 			w.Close()
 		}
-		c.writerLocker.Unlock()
 		fallthrough
 	case parser.PONG:
 		c.pingChan <- true
