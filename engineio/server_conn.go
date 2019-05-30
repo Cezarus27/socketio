@@ -23,7 +23,6 @@ const (
 
 // Conn is the connection object of engine.io.
 type Conn interface {
-
 	// Id returns the session id of connection.
 	Id() string
 
@@ -202,6 +201,7 @@ func (c *serverConn) OnPacket(r *parser.PacketDecoder) {
 	case parser.PING:
 		t := c.getCurrent()
 		u := c.getUpgrade()
+		c.writerLocker.Lock()
 		newWriter := t.NextWriter
 		if u != nil {
 			if w, _ := t.NextWriter(message.MessageText, parser.NOOP); w != nil {
@@ -213,6 +213,7 @@ func (c *serverConn) OnPacket(r *parser.PacketDecoder) {
 			io.Copy(w, r)
 			w.Close()
 		}
+		c.writerLocker.Unlock()
 		fallthrough
 	case parser.PONG:
 		c.pingChan <- true
