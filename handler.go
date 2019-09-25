@@ -361,7 +361,7 @@ func (h *socketHandler) onAck(id int, decoder *decoder, packet *packet) error {
 
 const db1 = false
 
-var DbLogMessage = true
-var LogMessage = true
+var DbLogMessage = false
+var LogMessage = false
 
 /* vim: set noai ts=4 sw=4: */
