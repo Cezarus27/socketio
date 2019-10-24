@@ -147,8 +147,25 @@ func (c *serverConn) NextWriter(t MessageType) (io.WriteCloser, error) {
 	default:
 		return nil, io.EOF
 	}
+
+	w.writerLocker.Lock()
 	ret, err := c.getCurrent().NextWriter(message.MessageType(t), parser.MESSAGE)
-	return ret, err
+	if err != nil {
+		w.writerLocker.Unlock()
+		return nil, err
+	}
+
+	return wcWrapper{w.writerLocker, ret}, nil
+}
+
+type wcWrapper struct {
+	l *sync.Mutex
+	io.WriteCloser
+}
+
+func (w wcWrapper) wcClose() error {
+	defer w.l.Unlock()
+	return w.WriteCloser.Close()
 }
 
 func (c *serverConn) Close() error {
