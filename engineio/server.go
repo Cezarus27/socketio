@@ -9,8 +9,8 @@ import (
 	"sync/atomic"
 	"time"
 
-	"github.com/mlsquires/socketio/engineio/polling"
-	"github.com/mlsquires/socketio/engineio/websocket"
+	"github.com/3mdeb/socketio/engineio/polling"
+	"github.com/3mdeb/socketio/engineio/websocket"
 )
 
 type config struct {

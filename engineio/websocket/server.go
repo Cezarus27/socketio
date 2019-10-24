@@ -4,9 +4,9 @@ import (
 	"io"
 	"net/http"
 
-	"github.com/mlsquires/socketio/engineio/message"
-	"github.com/mlsquires/socketio/engineio/parser"
-	"github.com/mlsquires/socketio/engineio/transport"
+	"github.com/3mdeb/socketio/engineio/message"
+	"github.com/3mdeb/socketio/engineio/parser"
+	"github.com/3mdeb/socketio/engineio/transport"
 
 	"github.com/gorilla/websocket"
 )
