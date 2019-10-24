@@ -18,7 +18,7 @@ import (
 
 	flags "github.com/jessevdk/go-flags"
 
-	"github.com/mlsquires/socketio"
+	"github.com/3mdeb/socketio"
 )
 
 var port string = "9000"
