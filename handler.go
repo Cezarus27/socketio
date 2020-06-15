@@ -300,7 +300,7 @@ func (h *socketHandler) onPacket(decoder *decoder, packet *packet) ([]interface{
 		}
 	}
 	if LogMessage {
-		logrus.Infof("Message [%s] Auruments %s", message, godebug.SVar(args))
+		logrus.Infof("IN Message [%s] Arguments %s", message, godebug.SVar(args))
 	}
 
 	// ------------------------------------------------------ call ---------------------------------------------------------------------------------------
@@ -358,10 +358,3 @@ func (h *socketHandler) onAck(id int, decoder *decoder, packet *packet) error {
 	c.Call(h.socket, args)
 	return nil
 }
-
-const db1 = false
-
-var DbLogMessage = false
-var LogMessage = false
-
-/* vim: set noai ts=4 sw=4: */
