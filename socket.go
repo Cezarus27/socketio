@@ -4,6 +4,8 @@ import (
 	"net/http"
 
 	"github.com/3mdeb/socketio/engineio"
+	"github.com/sirupsen/logrus"
+	"github.com/pschlump/godebug"
 )
 
 // Socket is the socket object of socket.io.
@@ -47,6 +49,11 @@ func (s *socket) Emit(message string, args ...interface{}) error {
 	if err := s.socketHandler.Emit(message, args...); err != nil {
 		return err
 	}
+
+	if LogMessage {
+		logrus.Infof("OUT Message [%s] Arguments %s", message, godebug.SVar(args))
+	}
+
 	if message == "disconnect" {
 		s.conn.Close()
 	}
