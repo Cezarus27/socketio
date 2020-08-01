@@ -30,10 +30,10 @@ func (r *connReader) Close() error {
 
 type connWriter struct {
 	io.WriteCloser
-	locker *sync.RWMutex
+	locker *sync.Mutex
 }
 
-func newConnWriter(w io.WriteCloser, locker *sync.RWMutex) *connWriter {
+func newConnWriter(w io.WriteCloser, locker *sync.Mutex) *connWriter {
 	return &connWriter{
 		WriteCloser: w,
 		locker:      locker,
