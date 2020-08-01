@@ -3,6 +3,7 @@ package websocket
 import (
 	"io"
 	"net/http"
+	"fmt"
 
 	"github.com/3mdeb/socketio/engineio/message"
 	"github.com/3mdeb/socketio/engineio/parser"
@@ -15,7 +16,7 @@ import (
 type Server struct {
 	callback     transport.Callback
 	conn         *websocket.Conn
-	writerLocker sync.RWMutex
+	writerLocker sync.Mutex
 }
 
 /*
@@ -54,9 +55,19 @@ func (s *Server) ServeHTTP(w http.ResponseWriter, r *http.Request) {
 	w.WriteHeader(http.StatusBadRequest)
 }
 
-func (s *Server) NextWriter(msgType message.MessageType, packetType parser.PacketType) (io.WriteCloser, error) {
+func (s *Server) WriterLock() () {
+	fmt.Println("Writer: locking")
 	s.writerLocker.Lock()
-	defer s.writerLocker.Unlock()
+}
+
+func (s *Server) WriterUnlock() () {
+	fmt.Println("Writer: unlocking")
+	s.writerLocker.Unlock()
+}
+
+func (s *Server) NextWriter(msgType message.MessageType, packetType parser.PacketType) (io.WriteCloser, error) {
+	s.WriterLock()
+	defer s.WriterUnlock()
 
 	wsType, newEncoder := websocket.TextMessage, parser.NewStringEncoder
 	if msgType == message.MessageBinary {
