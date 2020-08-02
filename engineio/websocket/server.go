@@ -9,7 +9,7 @@ import (
 	"github.com/3mdeb/socketio/engineio/parser"
 	"github.com/3mdeb/socketio/engineio/transport"
 
-	"github.com/gorilla/websocket"
+	"github.com/3mdeb/websocket"
 	"sync"
 )
 
