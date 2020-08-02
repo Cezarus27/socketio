@@ -3,7 +3,7 @@ module github.com/3mdeb/socketio
 go 1.13
 
 require (
-	github.com/3mdeb/websocket v1.4.3-0.20200802190236-956a4244e8a0
+	github.com/3mdeb/websocket v1.4.3-0.20200802193109-3bd7ae377785
 	github.com/gorilla/websocket v1.4.2 // indirect
 	github.com/pschlump/godebug v1.0.1
 	github.com/pschlump/json v1.12.0

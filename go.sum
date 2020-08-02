@@ -2,6 +2,8 @@ github.com/3mdeb/socketio v0.0.0-20200617135752-5e3badd8466a h1:igr5P2SRsYt+YTI4
 github.com/3mdeb/socketio v0.0.0-20200617135752-5e3badd8466a/go.mod h1:Cg+Itwxx7AZYAmy23AI5nuHwOq2+qvehY5hN4hTDf38=
 github.com/3mdeb/websocket v1.4.3-0.20200802190236-956a4244e8a0 h1:2jjulwRFt3bPtN8/mdXQfwf3kCG53lLMGMN04Ufo8gU=
 github.com/3mdeb/websocket v1.4.3-0.20200802190236-956a4244e8a0/go.mod h1:ol0Ab+k6m7C8Jyx8c4GNaYSU3oJzfHNq6BhXgdm/JiA=
+github.com/3mdeb/websocket v1.4.3-0.20200802193109-3bd7ae377785 h1:jKLrZD9X0Sf0W/PQlvh3hCrKgPtSm/DlDTrr/y/sop0=
+github.com/3mdeb/websocket v1.4.3-0.20200802193109-3bd7ae377785/go.mod h1:ol0Ab+k6m7C8Jyx8c4GNaYSU3oJzfHNq6BhXgdm/JiA=
 github.com/davecgh/go-spew v1.1.1/go.mod h1:J7Y8YcW2NihsgmVo/mv3lAwl/skON4iLHjSsI+c5H38=
 github.com/gorilla/websocket v1.4.2 h1:+/TMaTYc4QFitKJxsQ7Yye35DkWvkdLcvGKqM+x0Ufc=
 github.com/gorilla/websocket v1.4.2/go.mod h1:YR8l580nyteQvAITg2hZ9XVh4b55+EU/adAjf1fMHhE=
