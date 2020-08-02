@@ -1,0 +1,78 @@
+************************************************************************
+Looking for writer: NextWriter
+./parser.go:	NextWriter(engineio.MessageType) (io.WriteCloser, error)
+./parser.go:	writer, err := e.w.NextWriter(engineio.MessageText)
+./parser.go:	writer, err := e.w.NextWriter(engineio.MessageBinary)
+./helper_test.go:func (f *FrameSaver) NextWriter(t engineio.MessageType) (io.WriteCloser, error) {
+./engineio/README.md:					w, _ := conn.NextWriter(t)
+./engineio/transport/transport.go:	// NextWriter returns packet writer. This function call should be synced.
+./engineio/transport/transport.go:	NextWriter(messageType message.MessageType, packetType parser.PacketType) (io.WriteCloser, error)
+./engineio/transport/transport.go:	// NextWriter returns packet writer. This function call should be synced.
+./engineio/transport/transport.go:	NextWriter(messageType message.MessageType, packetType parser.PacketType) (io.WriteCloser, error)
+./engineio/server_conn_test.go:			encoder, err := wc.NextWriter(message.MessageBinary, parser.PING)
+./engineio/server_conn_test.go:			encoder, err = wc.NextWriter(message.MessageBinary, parser.UPGRADE)
+./engineio/server_conn_test.go:			encoder, err := wc.NextWriter(message.MessageBinary, parser.PING)
+./engineio/polling/client.go:func (c *client) NextWriter(messageType message.MessageType, packetType parser.PacketType) (io.WriteCloser, error) {
+./engineio/polling/server_test.go:				writer, err := server.NextWriter(message.MessageBinary, parser.MESSAGE)
+./engineio/polling/server_test.go:				writer, err := server.NextWriter(message.MessageText, parser.MESSAGE)
+./engineio/polling/server_test.go:				writer, err := server.NextWriter(message.MessageText, parser.MESSAGE)
+./engineio/polling/server_test.go:				writer, err := server.NextWriter(message.MessageBinary, parser.MESSAGE)
+./engineio/polling/server_test.go:				writer, err := server.NextWriter(message.MessageText, parser.MESSAGE)
+./engineio/polling/server_test.go:				writer, err := server.NextWriter(message.MessageText, parser.MESSAGE)
+./engineio/polling/server_test.go:				writer, err := server.NextWriter(message.MessageText, parser.MESSAGE)
+./engineio/polling/polling_test.go:			w, err := client.NextWriter(message.MessageBinary, parser.MESSAGE)
+./engineio/polling/polling_test.go:			w, err := s.server.NextWriter(message.MessageText, parser.MESSAGE)
+./engineio/polling/polling_test.go:			w, err = s.server.NextWriter(message.MessageText, parser.MESSAGE)
+./engineio/polling/polling_test.go:			w, err := s.server.NextWriter(message.MessageText, parser.MESSAGE)
+./engineio/polling/polling_test.go:			w, err := client.NextWriter(message.MessageBinary, parser.MESSAGE)
+./engineio/polling/polling_test.go:			w, err := s.server.NextWriter(message.MessageText, parser.MESSAGE)
+./engineio/polling/polling_test.go:			w, err = s.server.NextWriter(message.MessageText, parser.MESSAGE)
+./engineio/polling/polling_test.go:			w, err := s.server.NextWriter(message.MessageText, parser.MESSAGE)
+./engineio/polling/server.go:func (p *Polling) NextWriter(msgType message.MessageType, packetType parser.PacketType) (io.WriteCloser, error) {
+./engineio/websocket/client.go:func (c *client) NextWriter(msgType message.MessageType, packetType parser.PacketType) (io.WriteCloser, error) {
+./engineio/websocket/client.go:	w, err := c.conn.NextWriter(wsType)
+./engineio/websocket/websocket_test.go:				w, err := s.NextWriter(message.MessageText, parser.OPEN)
+./engineio/websocket/websocket_test.go:				w, err := s.NextWriter(message.MessageBinary, parser.NOOP)
+./engineio/websocket/websocket_test.go:			w, _ := c.NextWriter(message.MessageBinary, parser.MESSAGE)
+./engineio/websocket/websocket_test.go:			w, _ := c.NextWriter(message.MessageText, parser.MESSAGE)
+./engineio/websocket/websocket_test.go:				w, _ := s.NextWriter(message.MessageText, parser.OPEN)
+./engineio/websocket/websocket_test.go:				w, _ := s.NextWriter(message.MessageBinary, parser.NOOP)
+./engineio/websocket/websocket_test.go:			w, err := c.NextWriter(message.MessageBinary, parser.MESSAGE)
+./engineio/websocket/websocket_test.go:			w, err := c.NextWriter(message.MessageText, parser.MESSAGE)
+./engineio/websocket/websocket_test.go:				w, _ := s.NextWriter(message.MessageText, parser.MESSAGE)
+./engineio/websocket/websocket_test.go:			writer, err := s.NextWriter(message.MessageText, parser.MESSAGE)
+./engineio/websocket/server.go:func (s *Server) NextWriter(msgType message.MessageType, packetType parser.PacketType) (io.WriteCloser, error) {
+./engineio/websocket/server.go:	w, err := s.conn.NextWriter(wsType)
+./engineio/example/main.go:					w, err := conn.NextWriter(t)
+./engineio/server_conn.go:	// NextWriter returns the next message writer with given message type.
+./engineio/server_conn.go:	NextWriter(messageType MessageType) (io.WriteCloser, error)
+./engineio/server_conn.go:func (c *serverConn) NextWriter(t MessageType) (io.WriteCloser, error) {
+./engineio/server_conn.go:	ret, err := c.getCurrent().NextWriter(message.MessageType(t), parser.MESSAGE)
+./engineio/server_conn.go:	if w, err := c.getCurrent().NextWriter(message.MessageText, parser.CLOSE); err == nil {
+./engineio/server_conn.go:		newWriter := t.NextWriter
+./engineio/server_conn.go:			if w, _ := t.NextWriter(message.MessageText, parser.NOOP); w != nil {
+./engineio/server_conn.go:			newWriter = u.NextWriter
+./engineio/server_conn.go:	w, err := s.getCurrent().NextWriter(message.MessageText, parser.OPEN)
+./engineio/server_conn.go:			if w, _ := c.getCurrent().NextWriter(message.MessageText, parser.PING); w != nil {
+************************************************************************
+
+************************************************************************
+Looking for writer: SetWriteDeadline
+************************************************************************
+
+************************************************************************
+Looking for writer: WriteMessage
+************************************************************************
+
+************************************************************************
+Looking for writer: WriteJSON
+************************************************************************
+
+************************************************************************
+Looking for writer: EnableWriteCompression
+************************************************************************
+
+************************************************************************
+Looking for writer: SetCompressionLevel
+************************************************************************
+

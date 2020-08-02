@@ -1,0 +1,44 @@
+diff --git a/examples/chat/main.go b/examples/chat/main.go
+index 8751e4c3884c..0172fbff6eda 100644
+--- a/examples/chat/main.go
++++ b/examples/chat/main.go
+@@ -14,6 +14,8 @@ import (
+ 	"log"
+ 	"net/http"
+ 	"os"
++	"time"
++	"math/rand"
+ 
+ 	"github.com/pschlump/MiscLib"
+ 	"github.com/pschlump/godebug"
+@@ -52,13 +54,30 @@ func main() {
+ 		log.Fatal(err)
+ 	}
+ 
++	server.SetPingTimeout(60 * time.Second)
++	server.SetPingInterval(1 * time.Second)
++
+ 	server.On("connection", func(so socketio.Socket) {
+ 		fmt.Printf("%sa user connected%s, %s\n", MiscLib.ColorGreen, MiscLib.ColorReset, godebug.LF())
+ 		so.Join("chat")
+ 		so.On("chat message", func(msg string) {
+ 			fmt.Printf("%schat message, %s%s, %s\n", MiscLib.ColorGreen, msg, MiscLib.ColorReset, godebug.LF())
+ 			so.BroadcastTo("chat", "chat message", msg)
++			so.Emit("chat", "chat2 message", msg)
++
++			arr := make([]byte, 1024 * 1024)
++
++			for i := 0; i < 100; i++ {
++				rand.Read(arr)
++				so.Emit("chat", "random data", arr)
++			}
++
++			// fmt.Println(arr)
++			// for {
++			// 	so.Emit("chat", "123123123123", msg)
++			// }
+ 		})
++
+ 		so.On("disconnect", func() {
+ 			fmt.Printf("%suser disconnect%s, %s\n", MiscLib.ColorYellow, MiscLib.ColorReset, godebug.LF())
+ 		})

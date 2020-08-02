@@ -1,0 +1,6 @@
+NextWriter
+SetWriteDeadline
+WriteMessage
+WriteJSON
+EnableWriteCompression
+SetCompressionLevel

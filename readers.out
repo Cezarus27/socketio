@@ -1,0 +1,56 @@
+************************************************************************
+Looking for reader: NextReader
+./parser.go:	NextReader() (engineio.MessageType, io.ReadCloser, error)
+./parser.go:	ty, r, err := d.reader.NextReader()
+./parser.go:		t, r, err := d.reader.NextReader()
+./helper_test.go:func (f *FrameSaver) NextReader() (engineio.MessageType, io.ReadCloser, error) {
+./engineio/README.md:					t, r, _ := conn.NextReader()
+./engineio/transport/transport.go:	// NextReader returns packet decoder. This function call should be synced.
+./engineio/transport/transport.go:	NextReader() (*parser.PacketDecoder, error)
+./engineio/server_conn_test.go:			decoder, err := pc.NextReader()
+./engineio/server_conn_test.go:			decoder, err = wc.NextReader()
+./engineio/server_conn_test.go:			decoder, err = wc.NextReader()
+./engineio/server_conn_test.go:			decoder, err := pc.NextReader()
+./engineio/server_conn_test.go:			decoder, err = wc.NextReader()
+./engineio/server_conn_test.go:			decoder, err := pc.NextReader()
+./engineio/polling/client.go:func (c *client) NextReader() (*parser.PacketDecoder, error) {
+./engineio/polling/polling_test.go:			r, err := client.NextReader()
+./engineio/polling/polling_test.go:			r, err = client.NextReader()
+./engineio/polling/polling_test.go:			r, err := client.NextReader()
+./engineio/polling/polling_test.go:			r, err := client.NextReader()
+./engineio/polling/polling_test.go:			r, err = client.NextReader()
+./engineio/polling/polling_test.go:			r, err := client.NextReader()
+./engineio/websocket/client.go:func (c *client) NextReader() (*parser.PacketDecoder, error) {
+./engineio/websocket/client.go:		t, r, err := c.conn.NextReader()
+./engineio/websocket/websocket_test.go:			decoder, _ := c.NextReader()
+./engineio/websocket/websocket_test.go:			decoder, _ := c.NextReader()
+./engineio/websocket/websocket_test.go:			decoder, err := c.NextReader()
+./engineio/websocket/websocket_test.go:			decoder, err := c.NextReader()
+./engineio/websocket/websocket_test.go:			t, r, err := client.conn.NextReader()
+./engineio/websocket/server.go:		t, r, err := s.conn.NextReader()
+./engineio/example/main.go:					t, r, err := conn.NextReader()
+./engineio/server_conn.go:	// NextReader returns the next message type, reader. If no message received, it will block.
+./engineio/server_conn.go:	NextReader() (MessageType, io.ReadCloser, error)
+./engineio/server_conn.go:func (c *serverConn) NextReader() (MessageType, io.ReadCloser, error) {
+************************************************************************
+
+************************************************************************
+Looking for reader: SetReadDeadline
+************************************************************************
+
+************************************************************************
+Looking for reader: ReadMessage
+************************************************************************
+
+************************************************************************
+Looking for reader: ReadJSON
+************************************************************************
+
+************************************************************************
+Looking for reader: SetPongHandler
+************************************************************************
+
+************************************************************************
+Looking for reader: SetPingHandler
+************************************************************************
+

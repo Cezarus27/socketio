@@ -1,0 +1,34 @@
+diff --git a/engineio/websocket/server.go b/engineio/websocket/server.go
+index 0bc6840893ab..f8c384c37a58 100644
+--- a/engineio/websocket/server.go
++++ b/engineio/websocket/server.go
+@@ -3,6 +3,7 @@ package websocket
+ import (
+ 	"io"
+ 	"net/http"
++	"sync"
+ 
+ 	"github.com/3mdeb/socketio/engineio/message"
+ 	"github.com/3mdeb/socketio/engineio/parser"
+@@ -12,8 +13,9 @@ import (
+ )
+ 
+ type Server struct {
+-	callback transport.Callback
+-	conn     *websocket.Conn
++	callback     transport.Callback
++	conn         *websocket.Conn
++	writerLocker sync.Mutex
+ }
+ 
+ /*
+@@ -53,6 +55,9 @@ func (s *Server) ServeHTTP(w http.ResponseWriter, r *http.Request) {
+ }
+ 
+ func (s *Server) NextWriter(msgType message.MessageType, packetType parser.PacketType) (io.WriteCloser, error) {
++	s.writerLocker.Lock()
++	defer s.writerLocker.Unlock()
++
+ 	wsType, newEncoder := websocket.TextMessage, parser.NewStringEncoder
+ 	if msgType == message.MessageBinary {
+ 		wsType, newEncoder = websocket.BinaryMessage, parser.NewBinaryEncoder

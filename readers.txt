@@ -1,0 +1,6 @@
+NextReader
+SetReadDeadline
+ReadMessage
+ReadJSON
+SetPongHandler
+SetPingHandler

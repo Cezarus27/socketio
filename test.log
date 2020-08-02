@@ -1,0 +1,366 @@
+
+0 total assertions
+
+..
+2 total assertions
+
+...
+5 total assertions
+
+...
+8 total assertions
+
+...
+11 total assertions
+
+..
+13 total assertions
+
+.
+14 total assertions
+
+..
+16 total assertions
+
+...
+19 total assertions
+
+...
+22 total assertions
+
+...
+25 total assertions
+
+..
+27 total assertions
+
+....
+31 total assertions
+
+....
+35 total assertions
+
+....
+39 total assertions
+
+....
+43 total assertions
+
+..............
+57 total assertions
+
+............
+69 total assertions
+
+............
+81 total assertions
+
+............
+93 total assertions
+
+............
+105 total assertions
+
+..............
+119 total assertions
+
+..............
+133 total assertions
+
+..............
+147 total assertions
+
+..............
+161 total assertions
+
+...
+164 total assertions
+
+...............
+179 total assertions
+
+PASS
+ok  	_/home/maciej/projects/operon/socketio	1.028s
+.....
+5 total assertions
+
+....
+9 total assertions
+
+...........
+20 total assertions
+
+...........................x....................
+Failures:
+
+  * /home/maciej/projects/operon/socketio/engineio/server_conn_test.go 
+  Line 200:
+  Expected: nil
+  Actual:   'close tcp 127.0.0.1:34729->127.0.0.1:42302: use of closed network connection'
+  goroutine 35 [running]:
+  _/home/maciej/projects/operon/socketio/engineio.TestConn.func2.1()
+  	/home/maciej/projects/operon/socketio/engineio/server_conn_test.go:200 +0x1b12
+  github.com/jtolds/gls.(*ContextManager).SetValues.func1(0x0)
+  	/home/maciej/go/src/github.com/jtolds/gls/context.go:97 +0x5c5
+  github.com/jtolds/gls.EnsureGoroutineId(0xc000133470)
+  	/home/maciej/go/src/github.com/jtolds/gls/gid.go:19 +0x18e
+  github.com/jtolds/gls.(*ContextManager).SetValues(0xc00005ced0, 0xc000133410, 0xc00013a880)
+  	/home/maciej/go/src/github.com/jtolds/gls/context.go:63 +0x26c
+  _/home/maciej/projects/operon/socketio/engineio.TestConn.func2()
+  	/home/maciej/projects/operon/socketio/engineio/server_conn_test.go:121 +0xf7
+  github.com/jtolds/gls.(*ContextManager).SetValues.func1(0x0)
+  	/home/maciej/go/src/github.com/jtolds/gls/context.go:97 +0x5c5
+  github.com/jtolds/gls.EnsureGoroutineId.func1()
+  	/home/maciej/go/src/github.com/jtolds/gls/gid.go:24 +0x46
+  github.com/jtolds/gls._m(0x0, 0xc00013a840)
+  	/home/maciej/go/src/github.com/jtolds/gls/stack_tags.go:108 +0x43
+  github.com/jtolds/gls.github_com_jtolds_gls_markS(0x0, 0xc00013a840)
+  	/home/maciej/go/src/github.com/jtolds/gls/stack_tags.go:56 +0x43
+  github.com/jtolds/gls.addStackTag(...)
+  	/home/maciej/go/src/github.com/jtolds/gls/stack_tags.go:49
+  github.com/jtolds/gls.EnsureGoroutineId(0xc000133350)
+  	/home/maciej/go/src/github.com/jtolds/gls/gid.go:24 +0x157
+  github.com/jtolds/gls.(*ContextManager).SetValues(0xc00005ced0, 0xc0001332f0, 0xc00013a800)
+  	/home/maciej/go/src/github.com/jtolds/gls/context.go:63 +0x26c
+  _/home/maciej/projects/operon/socketio/engineio.TestConn(0xc000146000)
+  	/home/maciej/projects/operon/socketio/engineio/server_conn_test.go:120 +0x1ce
+  testing.tRunner(0xc000146000, 0xb1edb8)
+  	/usr/lib/go-1.13/src/testing/testing.go:909 +0x19a
+  created by testing.(*T).Run
+  	/usr/lib/go-1.13/src/testing/testing.go:960 +0x652
+  
+
+
+68 total assertions
+
+............E
+Errors:
+
+  * /home/maciej/projects/operon/socketio/engineio/server_conn_test.go 
+  Line 370: - runtime error: invalid memory address or nil pointer dereference 
+  goroutine 35 [running]:
+  panic(0xa82620, 0xf182b0)
+  	/usr/lib/go-1.13/src/runtime/panic.go:679 +0x1b2
+  _/home/maciej/projects/operon/socketio/engineio.(*serverConn).getState(0x0, 0x0)
+  	/home/maciej/projects/operon/socketio/engineio/server_conn.go:333 +0x3d
+  _/home/maciej/projects/operon/socketio/engineio.(*serverConn).Close(0x0, 0xc0002023a8, 0xb1f580)
+  	/home/maciej/projects/operon/socketio/engineio/server_conn.go:155 +0x43
+  _/home/maciej/projects/operon/socketio/engineio.TestConn.func3.2()
+  	/home/maciej/projects/operon/socketio/engineio/server_conn_test.go:370 +0x995
+  github.com/jtolds/gls.(*ContextManager).SetValues.func1(0x0)
+  	/home/maciej/go/src/github.com/jtolds/gls/context.go:97 +0x5c5
+  github.com/jtolds/gls.EnsureGoroutineId(0xc000133f50)
+  	/home/maciej/go/src/github.com/jtolds/gls/gid.go:19 +0x18e
+  github.com/jtolds/gls.(*ContextManager).SetValues(0xc00005ced0, 0xc000133ef0, 0xc00013ab60)
+  	/home/maciej/go/src/github.com/jtolds/gls/context.go:63 +0x26c
+  _/home/maciej/projects/operon/socketio/engineio.TestConn.func3()
+  	/home/maciej/projects/operon/socketio/engineio/server_conn_test.go:334 +0x154
+  github.com/jtolds/gls.(*ContextManager).SetValues.func1(0x0)
+  	/home/maciej/go/src/github.com/jtolds/gls/context.go:97 +0x5c5
+  github.com/jtolds/gls.EnsureGoroutineId.func1()
+  	/home/maciej/go/src/github.com/jtolds/gls/gid.go:24 +0x46
+  github.com/jtolds/gls._m(0x0, 0xc00000e8c0)
+  	/home/maciej/go/src/github.com/jtolds/gls/stack_tags.go:108 +0x43
+  github.com/jtolds/gls.github_com_jtolds_gls_markS(0x0, 0xc00000e8c0)
+  	/home/maciej/go/src/github.com/jtolds/gls/stack_tags.go:56 +0x43
+  github.com/jtolds/gls.addStackTag(...)
+  	/home/maciej/go/src/github.com/jtolds/gls/stack_tags.go:49
+  github.com/jtolds/gls.EnsureGoroutineId(0xc000095b30)
+  	/home/maciej/go/src/github.com/jtolds/gls/gid.go:24 +0x157
+  github.com/jtolds/gls.(*ContextManager).SetValues(0xc00005ced0, 0xc000095ad0, 0xc00000e880)
+  	/home/maciej/go/src/github.com/jtolds/gls/context.go:63 +0x26c
+  _/home/maciej/projects/operon/socketio/engineio.TestConn(0xc000146000)
+  	/home/maciej/projects/operon/socketio/engineio/server_conn_test.go:289 +0x29c
+  testing.tRunner(0xc000146000, 0xb1edb8)
+  	/usr/lib/go-1.13/src/testing/testing.go:909 +0x19a
+  created by testing.(*T).Run
+  	/usr/lib/go-1.13/src/testing/testing.go:960 +0x652
+  
+  goroutine 1 [chan receive]:
+  testing.(*T).Run(0xc0000f4000, 0xb01adc, 0x8, 0xb1edb8, 0x1)
+  	/usr/lib/go-1.13/src/testing/testing.go:961 +0x68a
+  testing.runTests.func1(0xc0000f4000)
+  	/usr/lib/go-1.13/src/testing/testing.go:1202 +0xa7
+  testing.tRunner(0xc0000f4000, 0xc0000a3d40)
+  	/usr/lib/go-1.13/src/testing/testing.go:909 +0x19a
+  testing.runTests(0xc00000e3c0, 0xf1f740, 0x4, 0x4, 0x0)
+  	/usr/lib/go-1.13/src/testing/testing.go:1200 +0x522
+  testing.(*M).Run(0xc0000f2000, 0x0)
+  	/usr/lib/go-1.13/src/testing/testing.go:1117 +0x300
+  main.main()
+  	_testmain.go:50 +0x224
+  
+
+
+81 total assertions
+
+==================
+WARNING: DATA RACE
+Write at 0x00c000146051 by goroutine 13:
+  testing.tRunner()
+      /usr/lib/go-1.13/src/testing/testing.go:912 +0x1ae
+  github.com/smartystreets/goconvey/convey.rootConvey()
+      /home/maciej/go/src/github.com/smartystreets/goconvey/convey/context.go:105 +0x457
+  github.com/smartystreets/goconvey/convey.Convey()
+      /home/maciej/go/src/github.com/smartystreets/goconvey/convey/doc.go:75 +0xe0
+  _/home/maciej/projects/operon/socketio/engineio.TestConn()
+      /home/maciej/projects/operon/socketio/engineio/server_conn_test.go:289 +0x29b
+  github.com/jtolds/gls.(*ContextManager).SetValues()
+      /home/maciej/go/src/github.com/jtolds/gls/context.go:63 +0x26b
+  github.com/smartystreets/goconvey/convey.rootConvey()
+      /home/maciej/go/src/github.com/smartystreets/goconvey/convey/context.go:105 +0x457
+  github.com/smartystreets/goconvey/convey.Convey()
+      /home/maciej/go/src/github.com/smartystreets/goconvey/convey/doc.go:75 +0xe0
+  _/home/maciej/projects/operon/socketio/engineio.TestConn()
+      /home/maciej/projects/operon/socketio/engineio/server_conn_test.go:120 +0x1cd
+  testing.tRunner()
+      /usr/lib/go-1.13/src/testing/testing.go:909 +0x199
+
+Previous write at 0x00c000146051 by goroutine 17:
+  testing.(*common).FailNow()
+      /usr/lib/go-1.13/src/testing/testing.go:652 +0x4c
+  testing.(*common).Fatal()
+      /usr/lib/go-1.13/src/testing/testing.go:710 +0x89
+  _/home/maciej/projects/operon/socketio/engineio.TestConn.func1.3.2.1()
+      /home/maciej/projects/operon/socketio/engineio/server_conn_test.go:93 +0x12c
+  net/http.HandlerFunc.ServeHTTP()
+      /usr/lib/go-1.13/src/net/http/server.go:2007 +0x51
+  net/http.serverHandler.ServeHTTP()
+      /usr/lib/go-1.13/src/net/http/server.go:2802 +0xce
+  net/http.(*conn).serve()
+      /usr/lib/go-1.13/src/net/http/server.go:1890 +0x837
+
+Goroutine 13 (running) created at:
+  testing.(*T).Run()
+      /usr/lib/go-1.13/src/testing/testing.go:960 +0x651
+  testing.runTests.func1()
+      /usr/lib/go-1.13/src/testing/testing.go:1202 +0xa6
+  testing.tRunner()
+      /usr/lib/go-1.13/src/testing/testing.go:909 +0x199
+  testing.runTests()
+      /usr/lib/go-1.13/src/testing/testing.go:1200 +0x521
+  testing.(*M).Run()
+      /usr/lib/go-1.13/src/testing/testing.go:1117 +0x2ff
+  main.main()
+      _testmain.go:50 +0x223
+
+Goroutine 17 (finished) created at:
+  net/http.(*Server).Serve()
+      /usr/lib/go-1.13/src/net/http/server.go:2928 +0x5b5
+  net/http/httptest.(*Server).goServe.func1()
+      /usr/lib/go-1.13/src/net/http/httptest/server.go:298 +0xb6
+==================
+--- FAIL: TestConn (5.54s)
+    server_conn_test.go:93: write tcp 127.0.0.1:40585->127.0.0.1:36198: use of closed network connection
+    testing.go:853: race detected during execution of test
+......
+87 total assertions
+
+..
+89 total assertions
+
+.....
+94 total assertions
+
+FAIL
+exit status 1
+FAIL	_/home/maciej/projects/operon/socketio/engineio	5.954s
+.................................
+33 total assertions
+
+.................................
+66 total assertions
+
+.............................................................................................................
+175 total assertions
+
+.
+176 total assertions
+
+..
+178 total assertions
+
+.
+179 total assertions
+
+..........
+189 total assertions
+
+.
+190 total assertions
+
+PASS
+ok  	_/home/maciej/projects/operon/socketio/engineio/polling	9.548s
+/home/maciej/projects/operon/socketio/engineio
+...
+3 total assertions
+
+.
+4 total assertions
+
+.....................
+25 total assertions
+
+........
+33 total assertions
+
+.....
+38 total assertions
+
+....
+42 total assertions
+
+
+42 total assertions
+
+PASS
+ok  	_/home/maciej/projects/operon/socketio/engineio/websocket	1.026s
+/home/maciej/projects/operon/socketio/engineio
+.....
+5 total assertions
+
+.....
+10 total assertions
+
+.
+11 total assertions
+
+...............
+26 total assertions
+
+.......
+33 total assertions
+
+.........
+42 total assertions
+
+............
+54 total assertions
+
+.........
+63 total assertions
+
+............
+75 total assertions
+
+.........
+84 total assertions
+
+............
+96 total assertions
+
+....
+100 total assertions
+
+..........................
+126 total assertions
+
+..........................
+152 total assertions
+
+..........................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................
+1154 total assertions
+
+PASS
+ok  	_/home/maciej/projects/operon/socketio/engineio/parser	1.208s
+/home/maciej/projects/operon/socketio/engineio
