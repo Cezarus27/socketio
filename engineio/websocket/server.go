@@ -11,6 +11,8 @@ import (
 
 	"github.com/3mdeb/websocket"
 	"sync"
+	log "github.com/sirupsen/logrus"
+	"errors"
 )
 
 type Server struct {
@@ -91,6 +93,7 @@ func (s *Server) Close() error {
 
 func (s *Server) serveHTTP(w http.ResponseWriter, r *http.Request) {
 	defer s.callback.OnClose(s)
+	defer CapturePanic("serveHTTP")
 
 	for {
 		t, r, err := s.conn.NextReader()
@@ -111,4 +114,14 @@ func (s *Server) serveHTTP(w http.ResponseWriter, r *http.Request) {
 			decoder.Close()
 		}
 	}
+}
+
+func CapturePanic(msg string) (err error)  {
+	if p := recover(); p != nil {
+		msg := fmt.Sprintf("PANIC: %v error: %v", msg, p)
+		log.Warn(msg)
+		err := errors.New(msg)
+		return err
+	}
+	return nil
 }
