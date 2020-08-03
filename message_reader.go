@@ -1,6 +1,9 @@
 package socketio
 
-import "bufio"
+import (
+	"bufio"
+	"fmt"
+)
 
 // Read a message picking off the "name" that is sent at the begging and putting that in "message"
 
@@ -40,7 +43,7 @@ func newMessageReader(bufr *bufio.Reader) (*messageReader, error) {
 }
 
 func (r *messageReader) Message() string {
-	// fmt.Printf("message_reader: Message() >%s<\n", r.message)
+	fmt.Printf("message_reader: Message() >%s<\n", r.message)
 	return r.message
 }
 
