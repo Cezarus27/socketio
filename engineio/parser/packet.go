@@ -4,9 +4,12 @@ import (
 	"encoding/base64"
 	"fmt"
 	"io"
+	"sync"
 
 	"github.com/3mdeb/socketio/engineio/message"
 )
+
+var WriterLocker sync.RWMutex
 
 // PacketType is the type of packet
 type PacketType string
@@ -105,11 +108,15 @@ func NewB64Encoder(w io.Writer, t PacketType) (*PacketEncoder, error) {
 
 // Write writes bytes p.
 func (e *PacketEncoder) Write(p []byte) (int, error) {
+	WriterLocker.Lock()
+	defer WriterLocker.Unlock()
 	return e.w.Write(p)
 }
 
 // Close closes the encoder.
 func (e *PacketEncoder) Close() error {
+	WriterLocker.Lock()
+	defer WriterLocker.Unlock()
 	if e.closer != nil {
 		return e.closer.Close()
 	}
