@@ -9,13 +9,11 @@ import (
 	"github.com/3mdeb/socketio/engineio/transport"
 
 	"github.com/gorilla/websocket"
-	"sync"
 )
 
 type Server struct {
 	callback     transport.Callback
 	conn         *websocket.Conn
-	writerLocker sync.RWMutex
 }
 
 /*
