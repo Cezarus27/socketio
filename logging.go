@@ -10,6 +10,6 @@ const (
 )
 
 var (
-	DbLogMessage = false
+	DbLogMessage, _ = strconv.ParseBool(os.Getenv("SOCKETIO_LOG_MESSAGE"))
 	LogMessage, _ = strconv.ParseBool(os.Getenv("SOCKETIO_LOG_MESSAGE"))
 )
