@@ -1,11 +1,12 @@
 package socketio
 
 import (
+	"fmt"
 	"net/http"
 
 	"github.com/3mdeb/socketio/engineio"
-	"github.com/sirupsen/logrus"
 	"github.com/pschlump/godebug"
+	"github.com/sirupsen/logrus"
 )
 
 // Socket is the socket object of socket.io.
@@ -149,6 +150,7 @@ func (s *socket) loop() error {
 				}
 			}
 		case _DISCONNECT:
+			fmt.Println("Packet type on disconnect %s", p.Type)
 			return nil
 		}
 	}
