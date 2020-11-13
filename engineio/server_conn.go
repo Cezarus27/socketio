@@ -8,10 +8,10 @@ import (
 	"sync"
 	"time"
 
-	"github.com/pschlump/json" //	"encoding/json"
 	"github.com/3mdeb/socketio/engineio/message"
 	"github.com/3mdeb/socketio/engineio/parser"
 	"github.com/3mdeb/socketio/engineio/transport"
+	"github.com/pschlump/json" //	"encoding/json"
 )
 
 type MessageType message.MessageType
@@ -356,6 +356,7 @@ func (c *serverConn) setState(state state) {
 func (c *serverConn) pingLoop() {
 	lastPing := time.Now()
 	lastTry := lastPing
+	fmt.Println("pingLoop - lastPing %d", lastPing)
 	for {
 		now := time.Now()
 		pingDiff := now.Sub(lastPing)
@@ -377,6 +378,7 @@ func (c *serverConn) pingLoop() {
 			}
 			lastTry = time.Now()
 		case <-time.After(c.pingTimeout - pingDiff):
+			fmt.Println("Close connection - pingTimeout %d", c.pingTimeout)
 			c.Close()
 			return
 		}
